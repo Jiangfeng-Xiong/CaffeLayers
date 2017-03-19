@@ -82,7 +82,7 @@ class NormalizeLayerTest : public MultiDeviceTest<TypeParam> {
     LayerParameter layer_param;
     NormalizeLayer<Dtype> layer(layer_param);
     GradientChecker<Dtype> checker(1e-4, 1e-2, 1701);
-    checker.CheckGradient(&layer, this->blob_bottom_vec_,
+    checker.CheckGradientExhaustive(&layer, this->blob_bottom_vec_,
         this->blob_top_vec_);
   }
 
